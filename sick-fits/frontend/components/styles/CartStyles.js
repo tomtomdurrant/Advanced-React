@@ -26,6 +26,7 @@ const CartStyles = styled.div`
   footer {
     border-top: 10px double var(--black);
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding-top: 2rem;
     display: grid;
     grid-template-columns: auto auto;

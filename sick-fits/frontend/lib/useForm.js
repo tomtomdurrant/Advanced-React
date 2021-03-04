@@ -5,7 +5,7 @@ export default function useForm(initialState = {}) {
   const [inputs, setInputs] = useState(initialState);
   const initialValues = Object.values(initialState).join('');
 
-  console.log('values are', initialValues);
+  // console.log('values are', initialValues);
   useEffect(() => {
     // this runs when the data changes
     setInputs(initialState);

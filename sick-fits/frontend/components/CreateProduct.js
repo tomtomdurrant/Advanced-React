@@ -50,7 +50,7 @@ export default function CreateProduct() {
         // console.log(inputs);
         // submit input fields to backend
         const { data } = await createProduct();
-        console.log(data.createProduct.id);
+        // console.log(data.createProduct.id);
         clearForm();
         // navigate to home page
         Router.push({
