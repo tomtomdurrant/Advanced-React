@@ -28,7 +28,6 @@ export default async function addToCart(
           id: existingCartItem.id, 
           data: { quantity: existingCartItem.quantity + 1 }
       });
-      
   }
   console.log("That item was not in the cart. Adding");
   

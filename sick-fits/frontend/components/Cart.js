@@ -7,12 +7,12 @@ import formatMoney from '../lib/formatMoney';
 import cartTotalPrice from '../lib/cartTotalPrice';
 import { useCart } from '../lib/cartState';
 import DeleteFromCart from './DeleteFromCart';
+import { Checkout } from './Checkout';
 
 export default function Cart() {
   const user = useUser();
   const { cartOpen, closeCart } = useCart();
   if (!user) return null;
-  // console.log(user);
   return (
     <CartStyles open={cartOpen}>
       <header>
@@ -28,6 +28,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>{formatMoney(cartTotalPrice(user.cart))}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );
