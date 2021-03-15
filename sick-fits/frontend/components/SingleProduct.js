@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import DisplayError from './ErrorMessage';
 
@@ -35,6 +36,9 @@ const ProductStyles = styled.div`
 `;
 
 export default function SingleProduct({ id }) {
+  console.log('id is', id);
+  const router = useRouter();
+  console.log('url is', router.query);
   const { data, loading, error } = useQuery(SINGLE_ITEM_QUERY, {
     variables: {
       id,

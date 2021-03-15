@@ -6,11 +6,13 @@ import { CartItem } from './schemas/CartItem';
 import { withItemData, statelessSessions } from '@keystone-next/keystone/session';
 import { Product } from './schemas/Product';
 import { Order } from './schemas/Order';
+import { Role } from './schemas/Role';
 import { OrderItem } from './schemas/OrderItem';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from "./mutations/index"
+import { permissionsList } from './schemas/fields';
 
 const databaseURL = process.env.DATABASE_URL || 'No database URL';
 
@@ -57,7 +59,8 @@ export default withAuth(config({
     ProductImage,
     CartItem,
     OrderItem,
-    Order
+    Order,
+    Role
   }),
   extendGraphqlSchema,
   ui: {
@@ -68,6 +71,7 @@ export default withAuth(config({
     }
   },
   session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id name email password'
+    // This response is a GraphQL query
+    User: `id name email password role { ${permissionsList.join(' ')} }`
   }),
 }));

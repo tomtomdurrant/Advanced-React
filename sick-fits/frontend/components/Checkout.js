@@ -81,8 +81,7 @@ export function CheckoutForm() {
 
     // go to order page
     router.push({
-      pathname: '/orders',
-      query: { id: order.data.checkout.id },
+      pathname: `/order/${order.data.checkout.id}`,
     });
     closeCart();
 
